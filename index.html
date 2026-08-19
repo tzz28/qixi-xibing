@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
   <meta name="theme-color" content="#100817">
-  <meta name="description" content="閫佺粰瑗块ゼ鐨勪竷澶曟槦娌?>
-  <title>瑗块ゼ锛屼竷澶曞揩涔?/title>
+  <meta name="description" content="送给西饼的七夕星河">
+  <title>西饼，七夕快乐</title>
   <style>
     :root {
       color-scheme: dark;
@@ -306,9 +306,9 @@
   </style>
 </head>
 <body>
-  <canvas id="sky" aria-label="鐢辨槦鍏夌粍鎴愮殑涓冨鍔ㄧ敾"></canvas>
+  <canvas id="sky" aria-label="由星光组成的七夕动画"></canvas>
   <div class="grain"></div>
-  <div class="topline">THE SEVENTH NIGHT 路 FOR XIBING</div>
+  <div class="topline">THE SEVENTH NIGHT · FOR XIBING</div>
 
   <div class="copy" id="copy" aria-live="polite">
     <p class="eyebrow" id="eyebrow"></p>
@@ -316,19 +316,19 @@
   </div>
 
   <div class="controls">
-    <button class="icon-button" id="sound" aria-label="鍏抽棴闊充箰">鈾?/button>
-    <button class="icon-button" id="share" aria-label="鍒嗕韩">鈫?/button>
+    <button class="icon-button" id="sound" aria-label="关闭音乐">♪</button>
+    <button class="icon-button" id="share" aria-label="分享">↗</button>
   </div>
 
   <div class="progress"><i id="progress"></i></div>
 
   <section class="intro" id="intro">
     <div class="letter">
-      <div class="seal">瑗?/div>
-      <h1>鑷磋タ楗?/h1>
-      <p>浠婃櫄鐨勬槦娌筹紝鍋峰伔钘忎簡涓€灏佷俊<br>璇蜂翰鎵嬫媶寮€瀹?/p>
-      <button class="open-button" id="open">寮€鍚竷澶曟槦娌?/button>
-      <div class="hint">寤鸿鎵撳紑澹伴煶 路 杞昏Е鏄熺┖浼氭湁鎯婂枩</div>
+      <div class="seal">西</div>
+      <h1>致西饼</h1>
+      <p>今晚的星河，偷偷藏了一封信<br>请亲手拆开它</p>
+      <button class="open-button" id="open">开启七夕星河</button>
+      <div class="hint">建议打开声音 · 轻触星空会有惊喜</div>
     </div>
   </section>
 
@@ -352,13 +352,13 @@
       const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       const scenes = [
-        { at: 0,  duration: 6500, shape: "瑗块ゼ", kicker: "鍐欑粰鎴戞渶鐗瑰埆鐨勪汉", text: "瑗块ゼ锛屼竷澶曞揩涔愩€? },
-        { at: 6500, duration: 7000, shape: "heart", kicker: "鍏充簬閬囪", text: "浜洪棿鏈変嚎涓囬鏄熸槦锛岃€屾垜鏈€搴嗗垢鐨勶紝鏄垰濂介亣瑙佷簡浣犮€? },
-        { at: 13500, duration: 7000, shape: "涓冨", kicker: "鍏充簬蹇冨姩", text: "鍠滄涓嶆槸涓€鐬棿鐨勭儫鐏紝鏄瘡娆＄湅瑙佷綘锛屽績閲岄兘浼氶噸鏂颁寒涓€娆°€? },
-        { at: 20500, duration: 7000, shape: "鈭?, kicker: "鍏充簬闄即", text: "鎯抽櫔浣犺蛋杩囩儹鐑堢殑澶忓ぉ锛屼篃鎯抽櫔浣犳敹钘忔瘡涓€涓钩鍑＄殑鏃ュ瓙銆? },
-        { at: 27500, duration: 7000, shape: "X 鈾?B", kicker: "鍏充簬鎴戜滑", text: "鎰夸互鍚庢瘡涓€煎緱绾康鐨勬椂鍒伙紝韬竟鐨勪汉渚濈劧鏄郊姝ゃ€? },
-        { at: 34500, duration: 7500, shape: "鏄熸渤", kicker: "涓€涓皬灏忔効鏈?, text: "宀佸瞾骞村勾锛屾湞鏈濇毊鏆紱鏄熸渤婊氱儷锛屼綘鏄汉闂寸悊鎯炽€? },
-        { at: 42000, duration: 8500, shape: "heart", kicker: "鏈€鍚庝竴鍙?, text: "瑗块ゼ锛屾垜鍠滄浣犮€備粖澶╂槸锛屾槑澶╀篃鏄紝寰堜箙寰堜箙浠ュ悗涔熸槸銆? }
+        { at: 0,  duration: 6500, shape: "西饼", kicker: "写给我最特别的人", text: "西饼，七夕快乐。" },
+        { at: 6500, duration: 7000, shape: "heart", kicker: "关于遇见", text: "人间有亿万颗星星，而我最庆幸的，是刚好遇见了你。" },
+        { at: 13500, duration: 7000, shape: "七夕", kicker: "关于心动", text: "喜欢不是一瞬间的烟火，是每次看见你，心里都会重新亮一次。" },
+        { at: 20500, duration: 7000, shape: "∞", kicker: "关于陪伴", text: "想陪你走过热烈的夏天，也想陪你收藏每一个平凡的日子。" },
+        { at: 27500, duration: 7000, shape: "X ♥ B", kicker: "关于我们", text: "愿以后每个值得纪念的时刻，身边的人依然是彼此。" },
+        { at: 34500, duration: 7500, shape: "星河", kicker: "一个小小愿望", text: "岁岁年年，朝朝暮暮；星河滚烫，你是人间理想。" },
+        { at: 42000, duration: 8500, shape: "heart", kicker: "最后一句", text: "西饼，我喜欢你。今天是，明天也是，很久很久以后也是。" }
       ];
       const totalDuration = scenes[scenes.length - 1].at + scenes[scenes.length - 1].duration;
 
@@ -647,7 +647,7 @@
         document.body.classList.add("started");
         intro.classList.add("hide");
         audio = createMusic();
-        setShape("瑗块ゼ");
+        setShape("西饼");
         burst(width / 2, height * .34, 70);
       }
 
@@ -663,14 +663,14 @@
       soundButton.addEventListener("click", async () => {
         if (!audio) return;
         await audio.toggle();
-        soundButton.textContent = muted ? "脳" : "鈾?;
-        soundButton.setAttribute("aria-label", muted ? "寮€鍚煶涔? : "鍏抽棴闊充箰");
+        soundButton.textContent = muted ? "×" : "♪";
+        soundButton.setAttribute("aria-label", muted ? "开启音乐" : "关闭音乐");
       });
 
       shareButton.addEventListener("click", async () => {
         const shareData = {
-          title: "瑗块ゼ锛屼竷澶曞揩涔?,
-          text: "鎴戞妸浠婃櫄鐨勬槦娌筹紝鍐欐垚浜嗕竴灏佺粰浣犵殑淇°€?,
+          title: "西饼，七夕快乐",
+          text: "我把今晚的星河，写成了一封给你的信。",
           url: location.href
         };
         try {
@@ -678,12 +678,12 @@
             await navigator.share(shareData);
           } else if (navigator.clipboard && location.protocol !== "file:") {
             await navigator.clipboard.writeText(location.href);
-            showToast("閾炬帴宸插鍒讹紝鍙戠粰瑗块ゼ鍚?);
+            showToast("链接已复制，发给西饼吧");
           } else {
-            showToast("鐐瑰嚮寰俊鍙充笂瑙?路 鍒嗕韩缁欒タ楗?);
+            showToast("点击微信右上角 · 分享给西饼");
           }
         } catch (error) {
-          if (error.name !== "AbortError") showToast("鐐瑰嚮寰俊鍙充笂瑙掑垎浜?);
+          if (error.name !== "AbortError") showToast("点击微信右上角分享");
         }
       });
 
