@@ -599,17 +599,14 @@
         track.loop = true;
         track.preload = "auto";
         track.volume = .72;
-        track.play().catch(() => showToast("轻触音乐按钮即可播放"));
+        track.play().catch(() => showToast("轻触右上角音乐按钮即可播放"));
 
         return {
           track,
           toggle: async () => {
             muted = !muted;
-            if (muted) {
-              track.pause();
-            } else {
-              await track.play();
-            }
+            if (muted) track.pause();
+            else await track.play();
           }
         };
       }
