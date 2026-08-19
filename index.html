@@ -595,47 +595,21 @@
       }
 
       function createMusic() {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContext) return;
-        const ac = new AudioContext();
-        const master = ac.createGain();
-        master.gain.value = .115;
-        master.connect(ac.destination);
+        const track = new Audio("music.mp3");
+        track.loop = true;
+        track.preload = "auto";
+        track.volume = .72;
+        track.play().catch(() => showToast("轻触音乐按钮即可播放"));
 
-        const notes = [261.63, 329.63, 392, 493.88, 440, 392, 329.63, 293.66];
-        let step = 0;
-        let timer = 0;
-
-        const playNote = () => {
-          if (muted || ac.state !== "running") return;
-          const now = ac.currentTime;
-          const osc = ac.createOscillator();
-          const gain = ac.createGain();
-          const filter = ac.createBiquadFilter();
-          osc.type = "sine";
-          osc.frequency.value = notes[step % notes.length] / (step % 6 === 4 ? 2 : 1);
-          filter.type = "lowpass";
-          filter.frequency.value = 1200;
-          gain.gain.setValueAtTime(.0001, now);
-          gain.gain.exponentialRampToValueAtTime(.16, now + .08);
-          gain.gain.exponentialRampToValueAtTime(.0001, now + 1.8);
-          osc.connect(filter);
-          filter.connect(gain);
-          gain.connect(master);
-          osc.start(now);
-          osc.stop(now + 1.9);
-          step++;
-        };
-
-        playNote();
-        timer = setInterval(playNote, 720);
         return {
-          context: ac,
-          stop: () => clearInterval(timer),
+          track,
           toggle: async () => {
             muted = !muted;
-            if (!muted && ac.state === "suspended") await ac.resume();
-            master.gain.setTargetAtTime(muted ? 0 : .115, ac.currentTime, .08);
+            if (muted) {
+              track.pause();
+            } else {
+              await track.play();
+            }
           }
         };
       }
@@ -695,8 +669,8 @@
       addEventListener("resize", resize, { passive: true });
       document.addEventListener("visibilitychange", () => {
         if (!audio) return;
-        if (document.hidden) audio.context.suspend();
-        else if (!muted) audio.context.resume();
+        if (document.hidden) audio.track.pause();
+        else if (!muted) audio.track.play().catch(() => {});
       });
 
       resize();
